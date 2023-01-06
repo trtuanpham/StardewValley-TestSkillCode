@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [SerializeField] Rigidbody _rigidbody;
+    [SerializeField] Animator _animator;
     [SerializeField] float _runSpeed = 20.0f;
 
     private float _horizontal;
@@ -25,6 +26,15 @@ public class CharacterController : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.velocity = new Vector3(_horizontal * _runSpeed * Time.smoothDeltaTime,0, _vertical * _runSpeed * Time.smoothDeltaTime);
+
+        if (_rigidbody.velocity.magnitude > 0)
+        {
+            _animator.SetBool("isRun", true);
+        }
+        else
+        {
+            _animator.SetBool("isRun", false);
+        }
     }
 
     private void OnValidate()
