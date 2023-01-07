@@ -39,7 +39,7 @@ public class BagController
         {
             if (_bags[avatarId].number > 1)
             {
-                _bags[avatarId].number++;
+                _bags[avatarId].number--;
                 OnUpdateBagHandler?.Invoke(_bags[avatarId]);
             }
             else
