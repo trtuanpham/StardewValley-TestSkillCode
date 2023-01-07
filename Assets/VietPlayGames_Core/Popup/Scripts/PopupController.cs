@@ -29,7 +29,7 @@ public class PopupController : Singleton<PopupController>
         gameObject.AddComponent<GraphicRaycaster>();
         var canvasScaler = gameObject.AddComponent<CanvasScaler>();
         canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
-        canvasScaler.referenceResolution = new Vector2(900, 900);
+        canvasScaler.referenceResolution = new Vector2(1200, 1200);
         canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
     }
 

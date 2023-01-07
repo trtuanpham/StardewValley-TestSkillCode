@@ -2,25 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AvartarShop : MonoBehaviour
+public class AvartarShop : BaseMapObject
 {
-    // Start is called before the first frame update
-    void Start()
+    public override string GetActionLabel()
     {
-        
+        return "Talk";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void CharacterAction(CharacterControl characterControl)
     {
-        
-    }
+        base.CharacterAction(characterControl);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Character")
-        {
-            ShopPopup.ShowPopup();
-        }
+        AvatarShopChatingPopup.ShowPopup();
     }
 }

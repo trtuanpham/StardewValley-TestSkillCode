@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterControl : BaseMonoBehaviour
@@ -8,11 +9,19 @@ public class CharacterControl : BaseMonoBehaviour
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Animator _animator;
     [SerializeField] float _runSpeed = 20.0f;
-
+    [SerializeField] GameObject _talkObject;
+    [SerializeField] TextMeshPro _talkContent;
     [SerializeField] CharacterAvatar _characterAvatar;
 
     private float _horizontal;
     private float _vertical;
+    private int _targetObjectId;
+    private BaseMapObject _targetObject;
+
+    private void Awake()
+    {
+        _talkObject.SetActive(false);
+    }
 
     protected override void OnInit()
     {
@@ -39,13 +48,28 @@ public class CharacterControl : BaseMonoBehaviour
 
     void Update()
     {
+        if (PopupController.Instance.HasActivePopup)
+        {
+            _horizontal = 0;
+            _vertical = 0;
+            return;
+        }
         _horizontal = Input.GetAxisRaw("Horizontal");
         _vertical = Input.GetAxisRaw("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_targetObject!=null)
+            {
+                _targetObject.CharacterAction(this);
+            }
+            _animator.SetTrigger("Attack");
+        }
     }
 
     private void FixedUpdate()
     {
-        _rigidbody.velocity = new Vector3(_horizontal * _runSpeed * Time.smoothDeltaTime,0, _vertical * _runSpeed * Time.smoothDeltaTime);
+        _rigidbody.velocity = new Vector3(_horizontal * _runSpeed * Time.smoothDeltaTime, 0, _vertical * _runSpeed * Time.smoothDeltaTime);
 
         if (_rigidbody.velocity.magnitude > 0)
         {
@@ -54,6 +78,26 @@ public class CharacterControl : BaseMonoBehaviour
         else
         {
             _animator.SetBool("isRun", false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        _targetObject = other.gameObject.GetComponent<BaseMapObject>();
+        if (_targetObject != null)
+        {
+            _targetObjectId = other.GetInstanceID();
+            _talkContent.text = _targetObject.GetActionLabel();
+            _talkObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetInstanceID() == _targetObjectId)
+        {
+            _targetObject = null;
+            _talkObject.SetActive(false);
         }
     }
 
