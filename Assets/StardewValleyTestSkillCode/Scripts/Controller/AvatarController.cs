@@ -16,9 +16,9 @@ public class AvatarController
         Avatar.cloth = "cloth_0";
     }
 
-    public event Action<AvatarType, string> OnChangeAvatarHandler;
+    public event Action<AvatarType, string> OnEquipAvatarHandler;
 
-    public void ChangeAvatar(AvatarType avatarType, string avatarId)
+    public void EquipAvatar(AvatarType avatarType, string avatarId)
     {
         switch (avatarType)
         {
@@ -33,6 +33,6 @@ public class AvatarController
                 break;
         }
 
-        OnChangeAvatarHandler?.Invoke(avatarType, avatarId);
+        OnEquipAvatarHandler?.Invoke(avatarType, avatarId);
     }
 }

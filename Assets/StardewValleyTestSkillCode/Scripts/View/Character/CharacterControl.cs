@@ -1,20 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CharacterControl : BaseMonoBehaviour
 {
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Animator _animator;
     [SerializeField] float _runSpeed = 20.0f;
 
+    [SerializeField] CharacterAvatar _characterAvatar;
+
     private float _horizontal;
     private float _vertical;
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void OnInit()
     {
+        base.OnInit();
+        _characterAvatar.SetData(AvatarController.Instance.Avatar);
+    }
 
+    protected override void OnAddEvent()
+    {
+        base.OnAddEvent();
+        AvatarController.Instance.OnEquipAvatarHandler += AvatarController_OnEquipAvatarHandler;
+    }
+
+    protected override void OnRemoveEvent()
+    {
+        base.OnRemoveEvent();
+        AvatarController.Instance.OnEquipAvatarHandler -= AvatarController_OnEquipAvatarHandler;
+    }
+
+    private void AvatarController_OnEquipAvatarHandler(AvatarType avatarType, string avatarId)
+    {
+        _characterAvatar.Equip(avatarType, avatarId);
     }
 
     void Update()
