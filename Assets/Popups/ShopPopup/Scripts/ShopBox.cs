@@ -43,6 +43,18 @@ public class ShopBox : BaseMonoBehaviour
 
     private void OnClickSelectShopItemHandler(ShopBoxItem item)
     {
+        if(_selectedItem == item)
+        {
+            ConfirmPopup.ShowPopup(LanguageConst.CONFIRM_BUY_AVATAR_TITLE, LanguageConst.CONFIRM_BUY_AVATAR_CONTENT, ok =>
+            {
+                if (ok)
+                {
+                    AvatarController.Instance.EquipAvatar(item.shopAvatarData.avatarType, item.shopAvatarData.id);
+                }
+            });
+            return;
+        }
+
         if (_selectedItem != null)
         {
             _selectedItem.UnSelected();

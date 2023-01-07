@@ -51,6 +51,7 @@ public static class UnityUtils
     {
         trans.localScale = Vector3.one;
         trans.localPosition = Vector3.zero;
+        trans.localRotation = Quaternion.identity;
     }
 
     public static void ClearChildTransform(this Transform trans)
