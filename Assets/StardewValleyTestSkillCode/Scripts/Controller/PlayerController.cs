@@ -13,7 +13,7 @@ public class PlayerController
 
     public PlayerController()
     {
-        coin = 3;
+        coin = 300;
     }
 
     public void UpdateCoin(long coinChange)

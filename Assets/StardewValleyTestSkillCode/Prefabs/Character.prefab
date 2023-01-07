@@ -1208,7 +1208,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
 --- !u!1 &6580613599814073959
 GameObject:
   m_ObjectHideFlags: 0

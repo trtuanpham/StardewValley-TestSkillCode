@@ -35,4 +35,51 @@ public class AvatarController
 
         OnEquipAvatarHandler?.Invoke(avatarType, avatarId);
     }
+
+    public void UnEquipAvatar(AvatarType avatarType, string avatarId)
+    {
+        switch (avatarType)
+        {
+            case AvatarType.Hat:
+                if(Avatar.hat == avatarId)
+                {
+                    Avatar.hat = string.Empty;
+                }
+                break;
+
+            case AvatarType.Cloth:
+                if (Avatar.cloth == avatarId)
+                {
+                    Avatar.cloth = string.Empty;
+                }
+                break;
+            default:
+                break;
+        }
+
+        OnEquipAvatarHandler?.Invoke(avatarType, avatarId);
+    }
+
+    public bool IsEquip(AvatarType avatarType, string avatarId)
+    {
+        switch (avatarType)
+        {
+            case AvatarType.Hat:
+                if (Avatar.hat == avatarId)
+                {
+                    return true;
+                }
+                break;
+
+            case AvatarType.Cloth:
+                if (Avatar.cloth == avatarId)
+                {
+                    return true;
+                }
+                break;
+            default:
+                break;
+        }
+        return false;
+    }
 }

@@ -96,7 +96,7 @@ public class Sound2DSetting : ScriptableObject
 
 #if UNITY_EDITOR
 
-    [MenuItem("Game Add-on/Sound2D/Sound2DSetting")]
+    [MenuItem("VietPlayGames/Sound2D/Sound2DSetting")]
     public static void CreateMyAsset()
     {
         FileInfo fileInfo = new FileInfo(PATH);

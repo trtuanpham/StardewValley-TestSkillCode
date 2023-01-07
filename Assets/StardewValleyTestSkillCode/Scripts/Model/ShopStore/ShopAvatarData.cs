@@ -8,4 +8,5 @@ public class ShopAvatarData
     public string name;
     public AvatarType avatarType;
     public long price = 10;
+    public long sell = 5;
 }

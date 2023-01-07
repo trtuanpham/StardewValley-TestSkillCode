@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharacterControl : BaseMonoBehaviour
 {
+    public const string TAG = "Character";
     [SerializeField] Rigidbody _rigidbody;
     [SerializeField] Animator _animator;
     [SerializeField] float _runSpeed = 20.0f;

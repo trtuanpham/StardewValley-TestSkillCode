@@ -10,7 +10,7 @@ public class IAPEditor : MonoBehaviour
     private const string USE_PAYOUTS = "USE_PAYOUTS";
     private const string RECEIPT_VALIDATION = "RECEIPT_VALIDATION";
 
-    private const string LINK_MENU = "BugBoxGames/IAP";
+    private const string LINK_MENU = "VietPlayGames/IAP";
 
     private static bool _hasIAP;
 
