@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3075060505545649806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343106638105486242}
+  m_Layer: 0
+  m_Name: '[Hat]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1343106638105486242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075060505545649806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6254864720019961682}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5124693520400527617
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,9 +463,10 @@ GameObject:
   - component: {fileID: 6254864719920151837}
   - component: {fileID: 6254864719920151835}
   - component: {fileID: 6254864719920151834}
+  - component: {fileID: 4552450991071913809}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,6 +503,7 @@ MonoBehaviour:
   _rigidbody: {fileID: 6254864719920151835}
   _animator: {fileID: 6254864720056943279}
   _runSpeed: 150
+  _characterAvatar: {fileID: 4552450991071913809}
 --- !u!54 &6254864719920151835
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -485,7 +518,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!136 &6254864719920151834
 CapsuleCollider:
@@ -501,6 +534,20 @@ CapsuleCollider:
   m_Height: 1.91
   m_Direction: 1
   m_Center: {x: 0, y: 0.955, z: 0}
+--- !u!114 &4552450991071913809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254864719920151838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973e9ab90d9e44614bed440b673922b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hatPlace: {fileID: 1343106638105486242}
+  _clothPlace: {fileID: 6550679839631237170}
 --- !u!1 &6254864720014998775
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,11 +658,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6254864720019961685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.707, z: 0}
+  m_LocalPosition: {x: 0, y: 0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6254864719083816924}
+  - {fileID: 1343106638105486242}
   m_Father: {fileID: 6254864720559440226}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
