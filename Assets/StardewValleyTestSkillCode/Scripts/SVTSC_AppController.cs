@@ -21,6 +21,8 @@ public class SVTSC_AppController : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+
+        ShopPopup.ShowPopup();
     }
 
     // Update is called once per frame
